@@ -43,31 +43,31 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC]">
+    <div className="min-h-screen bg-gradient-to-br from-farmfi-green-50 to-farmfi-earth-50">
       <Header />
       
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-semibold text-slate-900 mb-2">
+          <h1 className="text-3xl font-bold text-farmfi-green-700 mb-2">
             Welcome to FarmFi
           </h1>
-          <p className="text-slate-600">
+          <p className="text-farmfi-green-600">
             Blockchain-powered harvest traceability for transparent agriculture
           </p>
         </div>
 
         <Tabs defaultValue="overview" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-4 bg-white border border-slate-200">
-            <TabsTrigger value="overview" className="data-[state=active]:bg-primary data-[state=active]:text-white">
+          <TabsList className="grid w-full grid-cols-4 bg-white border border-farmfi-green-100">
+            <TabsTrigger value="overview" className="data-[state=active]:bg-farmfi-green-500 data-[state=active]:text-white">
               Overview
             </TabsTrigger>
-            <TabsTrigger value="mint" className="data-[state=active]:bg-primary data-[state=active]:text-white">
+            <TabsTrigger value="mint" className="data-[state=active]:bg-farmfi-green-500 data-[state=active]:text-white">
               Mint NFT
             </TabsTrigger>
-            <TabsTrigger value="certify" className="data-[state=active]:bg-primary data-[state=active]:text-white">
+            <TabsTrigger value="certify" className="data-[state=active]:bg-farmfi-green-500 data-[state=active]:text-white">
               Certify
             </TabsTrigger>
-            <TabsTrigger value="qr" className="data-[state=active]:bg-primary data-[state=active]:text-white">
+            <TabsTrigger value="qr" className="data-[state=active]:bg-farmfi-green-500 data-[state=active]:text-white">
               QR Codes
             </TabsTrigger>
           </TabsList>

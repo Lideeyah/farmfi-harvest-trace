@@ -19,9 +19,6 @@ export default {
 			}
 		},
 		extend: {
-			fontFamily: {
-				sans: ['Inter', 'system-ui', 'sans-serif'],
-			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -29,18 +26,8 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: '#2453CC',
-					50: '#EBF0FF',
-					100: '#D6E1FF',
-					200: '#ADC3FF',
-					300: '#85A5FF',
-					400: '#5C87FF',
-					500: '#2453CC',
-					600: '#1D42A3',
-					700: '#16317A',
-					800: '#0F2052',
-					900: '#081029',
-					foreground: '#FFFFFF'
+					DEFAULT: 'hsl(var(--primary))',
+					foreground: 'hsl(var(--primary-foreground))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
@@ -55,18 +42,8 @@ export default {
 					foreground: 'hsl(var(--muted-foreground))'
 				},
 				accent: {
-					DEFAULT: '#38B26C',
-					50: '#ECFDF5',
-					100: '#D1FAE5',
-					200: '#A7F3D0',
-					300: '#6EE7B7',
-					400: '#34D399',
-					500: '#38B26C',
-					600: '#059669',
-					700: '#047857',
-					800: '#065F46',
-					900: '#064E3B',
-					foreground: '#FFFFFF'
+					DEFAULT: 'hsl(var(--accent))',
+					foreground: 'hsl(var(--accent-foreground))'
 				},
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',
@@ -85,6 +62,29 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				farmfi: {
+					green: {
+						50: '#f0fdf4',
+						100: '#dcfce7',
+						500: '#22c55e',
+						600: '#16a34a',
+						700: '#15803d',
+					},
+					earth: {
+						50: '#fefdf8',
+						100: '#fef7cd',
+						500: '#eab308',
+						600: '#ca8a04',
+						700: '#a16207',
+					},
+					brown: {
+						50: '#fdf8f6',
+						100: '#f2e8e5',
+						500: '#92400e',
+						600: '#78350f',
+						700: '#65391b',
+					}
 				}
 			},
 			borderRadius: {
