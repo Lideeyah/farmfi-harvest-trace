@@ -1,10 +1,10 @@
-
 import { useState } from "react";
 import { CheckCircle, X, Eye, Clock } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
+import HarvestReviewDetails from "./HarvestReviewDetails";
 
 interface PendingHarvest {
   id: string;
@@ -19,6 +19,9 @@ interface PendingHarvest {
 
 const CertifierDashboard = () => {
   const { toast } = useToast();
+  const [selectedHarvest, setSelectedHarvest] = useState<PendingHarvest | null>(null);
+  const [isReviewOpen, setIsReviewOpen] = useState(false);
+  
   const [pendingHarvests] = useState<PendingHarvest[]>([
     {
       id: "NFT-001",
@@ -65,6 +68,11 @@ const CertifierDashboard = () => {
       description: `Harvest record ${id} has been rejected. Farmer has been notified.`,
       variant: "destructive",
     });
+  };
+
+  const handleReviewDetails = (harvest: PendingHarvest) => {
+    setSelectedHarvest(harvest);
+    setIsReviewOpen(true);
   };
 
   return (
@@ -161,7 +169,12 @@ const CertifierDashboard = () => {
                     <X className="h-4 w-4 mr-1" />
                     Reject
                   </Button>
-                  <Button size="sm" variant="outline" className="border-farmfi-green-200 text-farmfi-green-700">
+                  <Button 
+                    size="sm" 
+                    variant="outline" 
+                    className="border-farmfi-green-200 text-farmfi-green-700"
+                    onClick={() => handleReviewDetails(harvest)}
+                  >
                     <Eye className="h-4 w-4 mr-1" />
                     Review Details
                   </Button>
@@ -171,6 +184,18 @@ const CertifierDashboard = () => {
           </div>
         </CardContent>
       </Card>
+
+      {/* Review Details Modal */}
+      {selectedHarvest && (
+        <HarvestReviewDetails
+          isOpen={isReviewOpen}
+          onClose={() => {
+            setIsReviewOpen(false);
+            setSelectedHarvest(null);
+          }}
+          harvest={selectedHarvest}
+        />
+      )}
     </div>
   );
 };
