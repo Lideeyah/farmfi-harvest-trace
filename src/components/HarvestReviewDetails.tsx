@@ -26,24 +26,25 @@ const HarvestReviewDetails = ({ isOpen, onClose, harvest }: HarvestReviewDetails
   const { toast } = useToast();
   const [selectedImages, setSelectedImages] = useState<string[]>([]);
 
-  // Mock detailed data for the harvest
+  // Mock detailed data for the harvest with Nigerian context
   const harvestDetails = {
     ...harvest,
-    farmSize: "15 acres",
-    plantingDate: "2024-03-15",
-    seedVariety: "Heritage Tomato - Cherokee Purple",
-    irrigationMethod: "Drip irrigation system",
-    fertilizers: ["Organic compost", "Fish emulsion", "Kelp meal"],
-    pesticides: "None - Organic certification maintained",
-    harvestMethod: "Hand-picked at peak ripeness",
-    storageConditions: "Cold storage at 55°F, 90% humidity",
-    transportationMethod: "Refrigerated truck",
-    qualityGrade: "Grade A Premium",
-    moistureContent: "92%",
-    brixLevel: "6.8°",
-    phLevel: "6.2",
-    certifications: ["USDA Organic", "Non-GMO Project Verified"],
-    laborCompliance: "Fair Trade Certified",
+    farmSize: "25 hectares",
+    plantingDate: "2024-01-15",
+    seedVariety: "Trinitario Cocoa - Premium Grade",
+    irrigationMethod: "Rainfall dependent with supplementary irrigation",
+    fertilizers: ["Organic compost", "NPK 15-15-15", "Poultry manure"],
+    pesticides: "Integrated Pest Management - Black pod disease treatment",
+    harvestMethod: "Selective hand-picking at optimal maturity",
+    storageConditions: "Fermentation boxes, sun-dried on raised platforms",
+    transportationMethod: "Covered truck transport to collection center",
+    qualityGrade: "Grade A Premium Export Quality",
+    moistureContent: "7.5%",
+    beanCount: "95-100 beans per 100g",
+    fatContent: "54%",
+    certifications: ["Rainforest Alliance", "Fairtrade Certified", "Nigerian Cocoa Board Approved"],
+    laborCompliance: "Fair Labor Standards Certified",
+    cooperativeMembership: "Ondo State Cocoa Farmers Cooperative",
     images: [
       "/placeholder.svg",
       "/placeholder.svg", 
@@ -51,9 +52,10 @@ const HarvestReviewDetails = ({ isOpen, onClose, harvest }: HarvestReviewDetails
       "/placeholder.svg"
     ],
     documents: [
-      { name: "Organic Certificate", type: "PDF", size: "2.1 MB" },
-      { name: "Soil Test Report", type: "PDF", size: "1.8 MB" },
-      { name: "Harvest Log", type: "Excel", size: "0.5 MB" }
+      { name: "Cocoa Board Certificate", type: "PDF", size: "2.1 MB" },
+      { name: "Soil Analysis Report", type: "PDF", size: "1.8 MB" },
+      { name: "Harvest Log Book", type: "Excel", size: "0.5 MB" },
+      { name: "Cooperative Membership", type: "PDF", size: "1.2 MB" }
     ]
   };
 
@@ -137,7 +139,7 @@ const HarvestReviewDetails = ({ isOpen, onClose, harvest }: HarvestReviewDetails
                     <p className="text-gray-600">{harvestDetails.plantingDate}</p>
                   </div>
                   <div>
-                    <p className="font-medium text-gray-700">Seed Variety</p>
+                    <p className="font-medium text-gray-700">Variety</p>
                     <p className="text-gray-600">{harvestDetails.seedVariety}</p>
                   </div>
                 </div>
@@ -196,7 +198,7 @@ const HarvestReviewDetails = ({ isOpen, onClose, harvest }: HarvestReviewDetails
                   <p className="text-gray-600">{harvestDetails.harvestMethod}</p>
                 </div>
                 <div>
-                  <p className="font-medium text-gray-700 mb-2">Storage Conditions</p>
+                  <p className="font-medium text-gray-700 mb-2">Storage & Processing</p>
                   <p className="text-gray-600">{harvestDetails.storageConditions}</p>
                 </div>
                 <div>
@@ -217,8 +219,13 @@ const HarvestReviewDetails = ({ isOpen, onClose, harvest }: HarvestReviewDetails
               </div>
               
               <div>
-                <p className="font-medium text-gray-700 mb-2">Pesticides</p>
+                <p className="font-medium text-gray-700 mb-2">Pest Management</p>
                 <p className="text-gray-600">{harvestDetails.pesticides}</p>
+              </div>
+
+              <div>
+                <p className="font-medium text-gray-700 mb-2">Cooperative Membership</p>
+                <p className="text-gray-600">{harvestDetails.cooperativeMembership}</p>
               </div>
             </CardContent>
           </Card>
@@ -238,12 +245,12 @@ const HarvestReviewDetails = ({ isOpen, onClose, harvest }: HarvestReviewDetails
                 <p className="text-gray-600">{harvestDetails.moistureContent}</p>
               </div>
               <div>
-                <p className="font-medium text-gray-700">Brix Level</p>
-                <p className="text-gray-600">{harvestDetails.brixLevel}</p>
+                <p className="font-medium text-gray-700">Bean Count</p>
+                <p className="text-gray-600">{harvestDetails.beanCount}</p>
               </div>
               <div>
-                <p className="font-medium text-gray-700">pH Level</p>
-                <p className="text-gray-600">{harvestDetails.phLevel}</p>
+                <p className="font-medium text-gray-700">Fat Content</p>
+                <p className="text-gray-600">{harvestDetails.fatContent}</p>
               </div>
             </CardContent>
           </Card>
@@ -286,7 +293,7 @@ const HarvestReviewDetails = ({ isOpen, onClose, harvest }: HarvestReviewDetails
                   <p className="font-medium text-gray-700 mb-3">Current Certifications</p>
                   <div className="space-y-2">
                     {harvestDetails.certifications.map((cert, index) => (
-                      <Badge key={index} className="bg-farmfi-green-100 text-farmfi-green-700 mr-2">
+                      <Badge key={index} className="bg-farmfi-green-100 text-farmfi-green-700 mr-2 mb-2">
                         {cert}
                       </Badge>
                     ))}
